@@ -1,0 +1,13 @@
+pip install stripe
+
+import stripe
+
+stripe.api_key = "your-stripe-secret-key"
+
+# Function to create a payment intent
+def create_payment_intent(amount):
+    intent = stripe.PaymentIntent.create(
+        amount=int(amount * 100),  # Convert to cents
+        currency='zar',  # ZAR for South African Rand
+    )
+    return intent
